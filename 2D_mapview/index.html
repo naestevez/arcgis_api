@@ -2,12 +2,37 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=no"
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Getting Started with a 2D Mapview</title>
-    <link rel="stylesheet" href="https://js.arcgis.com/4.1/esri/css/main.css">
-    <script src="https://js.arcgis.com/4.1/"></script>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.0/"></script>
+    <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "dojo/domReady!"
+    ], function(Map, MapView) {
+      var map = new Map({
+        basemap: "streets"
+      });
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        zoom: 5,
+        center: [15, 65]
+      });
+    });
+    </script>
+    <style>
+      html, body, #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
-
+    <div id="viewDiv"></div>
   </body>
 </html>
